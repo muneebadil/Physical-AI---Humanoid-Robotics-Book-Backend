@@ -8,6 +8,7 @@ import cohere
 # -------------------------------------
 # CONFIG
 # -------------------------------------
+# Your Deployment Link:
 SITEMAP_URL = "https://physicalhumanoidaitextbook.vercel.app/sitemap.xml"
 COLLECTION_NAME = "humanoid_ai_book"
 
