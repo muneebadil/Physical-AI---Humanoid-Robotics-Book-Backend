@@ -4,6 +4,7 @@ import os
 from dotenv import load_dotenv
 from agents import enable_verbose_stdout_logging
 
+
 enable_verbose_stdout_logging()
 
 load_dotenv()
@@ -16,7 +17,7 @@ provider = AsyncOpenAI(
 )
 
 model = OpenAIChatCompletionsModel(
-    model="gemini-2.0-flash",
+    model="gemini-2.5-flash",
     openai_client=provider
 )
 
@@ -24,11 +25,11 @@ import cohere
 from qdrant_client import QdrantClient
 
 # Initialize Cohere client
-cohere_client = cohere.Client("key-here")
+cohere_client = cohere.Client("oT2uItxfZZXcibYkWpFA6MhjH2wfiN86zkehMjAK")
 # Connect to Qdrant
 qdrant = QdrantClient(
-    url="url-here",
-    api_key="here-key" 
+    url="https://092f4da6-e5bc-46dd-8f91-c1953e8513e5.europe-west3-0.gcp.cloud.qdrant.io:6333", 
+    api_key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.U2-91G5R8r_8BvEo5PrOpbya1gxlyfP1sqr2lSL0BkM",
 )
 
 
@@ -68,9 +69,6 @@ If the answer is not in the retrieved content, say "I don't know".
 )
 
 
-result = Runner.run_sync(
-    agent,
-    input="what is physical ai?",
-)
-
-print(result.final_output)
+async def run_agent(query: str):
+    result = await Runner.run(agent, input=query)
+    return result.final_output
