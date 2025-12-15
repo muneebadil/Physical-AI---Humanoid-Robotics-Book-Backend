@@ -1,6 +1,9 @@
 import cohere
 from qdrant_client import QdrantClient
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 # Initialize Cohere client
 cohere_client = os.getenv("COHERE_API_KEY")
 

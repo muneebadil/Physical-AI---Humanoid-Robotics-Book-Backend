@@ -4,6 +4,8 @@ import trafilatura
 from qdrant_client import QdrantClient
 from qdrant_client.models import VectorParams, Distance, PointStruct
 import cohere
+import os
+from dotenv import load_dotenv
 
 # -------------------------------------
 # CONFIG
