@@ -12,13 +12,13 @@ import cohere
 SITEMAP_URL = "https://physical-ai-humanoid-robotics-book-olive.vercel.app/sitemap.xml"
 COLLECTION_NAME = "humanoid_ai_book"
 
-cohere_client = cohere.Client("oT2uItxfZZXcibYkWpFA6MhjH2wfiN86zkehMjAK")
+cohere_client = os.getenv("COHERE_API_KEY")
 EMBED_MODEL = "embed-english-v3.0"
 
 # Connect to Qdrant Cloud
 qdrant= QdrantClient(
-    url="https://092f4da6-e5bc-46dd-8f91-c1953e8513e5.europe-west3-0.gcp.cloud.qdrant.io:6333", 
-    api_key="eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIn0.U2-91G5R8r_8BvEo5PrOpbya1gxlyfP1sqr2lSL0BkM",
+    url=os.getenv("QDRANT_URL"),
+    api_key=os.getenv("QDRANT_API_KEY"),
 )
 
 # -------------------------------------
